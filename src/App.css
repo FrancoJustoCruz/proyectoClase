@@ -1,40 +1,78 @@
-import React, { useEffect, useState } from 'react'
-import './index.css'
-import { ContactList } from './Components/ContactList'
-import { Form } from './Components/Form'
-import { Modal } from './Components/Modal'
-function App() {
-  const [isOpen, setIsOpen] = useState(false)
-
-  const [contactList, setContactList] = useState([])
-
-
-  useEffect(()=>{
-    console.log(contactList)
-  },[contactList])
-  return (
-    <>
-      <div className="container">
-        <h1>Lista de Contactos</h1>
-        <ContactList  
-          contactList = {contactList}
-        />
-        <button onClick={() => setIsOpen(true)} id="addContactBtn">+</button>
-      </div>
-
-      {
-        isOpen &&
-
-        <Modal title="Agregar contacto" setIsOpen={() => setIsOpen(false)}>
-
-          <Form setContactList = {setContactList} contactList= {contactList}/>
-
-        </Modal>
-
-      }
-
-    </>
-  )
+.mainContainer {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  box-sizing: border-box;
+  text-align: center;
 }
 
-export default App
+.titulo {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.spanSaldo {
+  margin-bottom: 20px;
+  width: calc(100% - 40px);
+}
+
+.spanSaldo span {
+  border-radius: 20px;
+  background-color: #c7ecc7;
+  width: 100%;
+  display: inline-block;
+}
+
+.buttonsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 100%;
+}
+
+.buttonsContainer button {
+  width: 100%;
+  padding: 15px;
+  font-size: 18px;
+  border: none;
+  cursor: pointer;
+}
+.buttonsContainer button:nth-child(1) {
+  background-color: #3498db; 
+  color: #ffffff;
+}
+
+.buttonsContainer button:nth-child(2) {
+  background-color: #2ecc71;
+  color: #ffffff;
+}
+
+.buttonsContainer button:nth-child(3) {
+  background-color: #e74c3c; 
+  color: #ffffff;
+}
+
+.buttonsContainer button:nth-child(4) {
+  background-color: #f39c12; 
+  color: #ffffff;
+}
+
+  .titulo {
+    font-size: 20px;
+  }
+
+  .buttonsContainer {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .buttonsContainer button {
+    width: auto;
+    padding: 12px;
+    font-size: 16px;
+  }
+
