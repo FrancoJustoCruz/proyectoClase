@@ -2,6 +2,7 @@
   width: 100%;
   height: 100vh;
   display: flex;
+  background-color: blueviolet;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -16,8 +17,9 @@
 }
 
 .spanSaldo {
-  margin-bottom: 20px;
+  margin-bottom: 30px;
   width: calc(100% - 40px);
+  display: flex;
 }
 
 .spanSaldo span {
@@ -25,6 +27,10 @@
   background-color: #c7ecc7;
   width: 100%;
   display: inline-block;
+  height: 40px;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
 }
 
 .buttonsContainer {
@@ -38,7 +44,8 @@
   width: 100%;
   padding: 15px;
   font-size: 18px;
-  border: none;
+  border-radius: 10px;
+  border:  2px solid white;
   cursor: pointer;
 }
 .buttonsContainer button:nth-child(1) {

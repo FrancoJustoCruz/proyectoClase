@@ -38,7 +38,7 @@ function App() {
       <div className="mainContainer">
         <div className="titulo">Control de Ingresos y Gastos</div>
         <div className="spanSaldo">
-          <span>Saldo</span>
+          <span className='saldoActual'>Saldo</span>
         </div>
         <div className="buttonsContainer">
           <BotonComponent texto="Nueva Entrada" onClick={handleModalEntradaToggle} />
