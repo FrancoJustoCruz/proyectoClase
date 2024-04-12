@@ -36,7 +36,7 @@ function App() {
   return (
     <>
       <div className="mainContainer">
-        <div className="titulo">Control de Ingresos y Gastos</div>
+        <h1 className="titulo">Control de Ingresos y Gastos</h1>
         <div className="spanSaldo">
           <span className='saldoActual'>Saldo</span>
         </div>

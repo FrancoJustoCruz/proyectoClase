@@ -1,5 +1,5 @@
 .mainContainer {
-  width: 100%;
+  width: 100vw;
   height: 100vh;
   display: flex;
   background-color: blueviolet;
@@ -12,8 +12,9 @@
 }
 
 .titulo {
-  font-size: 24px;
+  font-size: 40px;
   margin-bottom: 20px;
+  font-family: 'Rubik';
 }
 
 .spanSaldo {
