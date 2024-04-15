@@ -8,9 +8,15 @@ import ModalSalida from './Components/Modal/ModalSalida/ModalSalida'
 function App() {
   const [modalEntradaOpen, setModalEntradaOpen] = useState(false)
   const [modalSalidaOpen, setModalSalidaOpen] = useState(false)
-  const [monto, setMonto] = useState('');
-  const [descripcion, setDescripcion] = useState('')
-  const [categoria, setCategoria] = useState('')
+
+  // Estados para el modal de entrada
+  const [montoEntrada, setMontoEntrada] = useState('');
+  const [descripcionEntrada, setDescripcionEntrada] = useState('')
+
+  // Estados para el modal de salida
+  const [montoSalida, setMontoSalida] = useState('');
+  const [descripcionSalida, setDescripcionSalida] = useState('')
+  const [categoriaSalida, setCategoriaSalida] = useState('')
 
   const handleModalEntradaToggle = () => {
     setModalEntradaOpen(!modalEntradaOpen)
@@ -20,23 +26,34 @@ function App() {
     setModalSalidaOpen(!modalSalidaOpen)
   }
 
-  const handleInputChange = (event) => {
+  const handleInputChangeEntrada = (event) => {
     const { name, value } = event.target
     if (name === 'monto') {
       if (!isNaN(value)) {
-        setMonto(value);
+        setMontoEntrada(value);
       }
     } else if (name === 'descripcion') {
-      setDescripcion(value)
+      setDescripcionEntrada(value)
+    }
+  }
+
+  const handleInputChangeSalida = (event) => {
+    const { name, value } = event.target
+    if (name === 'monto') {
+      if (!isNaN(value)) {
+        setMontoSalida(value);
+      }
+    } else if (name === 'descripcion') {
+      setDescripcionSalida(value)
     } else if (name === 'categoria') {
-      setCategoria(value)
+      setCategoriaSalida(value)
     }
   }
 
   return (
     <>
       <div className="mainContainer">
-        <h1 className="titulo">Control de Ingresos y Gastos</h1>
+        <div className="titulo">Control de Ingresos y Gastos</div>
         <div className="spanSaldo">
           <span className='saldoActual'>Saldo</span>
         </div>
@@ -51,19 +68,19 @@ function App() {
       <ModalEntrada
         isOpen={modalEntradaOpen}
         onClose={handleModalEntradaToggle}
-        monto={monto}
-        descripcion={descripcion}
-        handleInputChange={handleInputChange}
+        monto={montoEntrada}
+        descripcion={descripcionEntrada}
+        handleInputChange={handleInputChangeEntrada}
         handleSave={handleModalEntradaToggle}
       />
 
       <ModalSalida
         isOpen={modalSalidaOpen}
         onClose={handleModalSalidaToggle}
-        monto={monto}
-        descripcion={descripcion}
-        categoria={categoria}
-        handleInputChange={handleInputChange}
+        monto={montoSalida}
+        descripcion={descripcionSalida}
+        categoria={categoriaSalida}
+        handleInputChange={handleInputChangeSalida}
         handleSave={handleModalSalidaToggle}
       />
     </>

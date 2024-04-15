@@ -6,16 +6,16 @@ function ModalEntrada({ isOpen, onClose, monto, descripcion, handleInputChange, 
       <div className="modal">
         <div className="modalContent">
           <span className="closeButton" onClick={onClose}>X</span>
-          <h2>Entrada</h2>
-          <label htmlFor="monto">Monto:</label>
+          <h2 className='tituloEntrada'>Entrada</h2>
+          <label className='tituloMonto' htmlFor="monto">Monto:</label>
           <br />
-          <input type="number" id="monto" name="monto" value={monto} onChange={handleInputChange} />
+          <input className='inputMonto' type="number" id="monto" name="monto" value={monto} onChange={handleInputChange} />
           <br />
-          <label htmlFor="descripcion">Descripción:</label>
+          <label className='tituloDescripcion' htmlFor="descripcion">Descripción:</label>
           <br />
-          <textarea id="descripcion" name="descripcion" value={descripcion} onChange={handleInputChange} />
+          <textarea className='descripcion' id="descripcion" name="descripcion" value={descripcion} onChange={handleInputChange} />
           <br />
-          <button onClick={handleSave}>Guardar</button>
+          <button className='buttonEntrada' onClick={handleSave}>Guardar</button>
         </div>
       </div>
     )
