@@ -1,20 +1,64 @@
-.modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+.modalEntrada {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
   
-  .modalContent {
+  .modalEntradaContent {
     background-color: white;
     padding: 20px;
     border-radius: 5px;
     position: relative; 
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: white;
+    width: 90%;
+    height: 90%;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .form-entrada{
+    display: flex;
+    width: 80%;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  input{
+    height: 30px;
+    border: 2px solid silver;
+    border-radius: 10px;
+  }
+
+  textarea {
+    height: 100px;
+    border: 2px solid silver;
+    border-radius: 10px;
+  }
+
+  button {
+    height: 40px;
+    border: 2px solid aliceblue;
+    border-radius: 10px;
+    background-color: blueviolet;
+  }
+
+  button:hover {
+    cursor: pointer;
+    color: aliceblue;
+    border: 2px solid aliceblue;
   }
   
   .closeButton {
