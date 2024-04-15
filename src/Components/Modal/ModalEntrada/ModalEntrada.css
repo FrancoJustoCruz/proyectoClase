@@ -1,3 +1,4 @@
+
 .modalEntrada {
   position: fixed;
   top: 0;
@@ -59,11 +60,57 @@
     cursor: pointer;
     color: aliceblue;
     border: 2px solid aliceblue;
+
+
+
+@keyframes fadeInFromBottom {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
   }
-  
-  .closeButton {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    cursor: pointer;
+  to {
+    opacity: 1;
+    transform: translateY(0);
+
   }
+}
+
+.closeButton {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+}
+
+.tituloEntrada {
+  text-align: center;
+}
+
+.tituloMonto,
+.tituloDescripcion {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.inputMonto,
+.descripcion {
+  width: 100%; 
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box; 
+}
+
+.descripcion {
+  animation-delay: 0.5s; 
+}
+.buttonEntrada {
+  width: 100%; 
+  padding: 10px;
+  background-color: #007bff; 
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}

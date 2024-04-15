@@ -7,13 +7,13 @@ function ModalSalida({ isOpen, onClose, monto, descripcion, categoria, handleInp
         <div className="modalContent">
           <span className="closeButton" onClick={onClose}>X</span>
           <h2>Salida</h2>
-          <label htmlFor="montoSalida">Monto:</label>
+          <label className='tituloMonto' htmlFor="montoSalida">Monto:</label>
           <br />
-          <input type="number" id="montoSalida" name="monto" value={monto} onChange={handleInputChange} />
+          <input className='inputMonto' type="number" id="montoSalida" name="monto" value={monto} onChange={handleInputChange} />
           <br />
-          <label htmlFor="categoria">Seleccionar Categoría:</label>
+          <label className='tituloCategoria' htmlFor="categoria">Seleccionar Categoría:</label>
           <br />
-          <select id="categoria" name="categoria" value={categoria} onChange={handleInputChange}>
+          <select className='listaCategoria' id="categoria" name="categoria" value={categoria} onChange={handleInputChange}>
             <option value="">Seleccione una categoría</option>
             <option value="alimentacion">Alimentación</option>
             <option value="transporte">Transporte</option>
@@ -22,11 +22,11 @@ function ModalSalida({ isOpen, onClose, monto, descripcion, categoria, handleInp
             
           </select>
           <br />
-          <label htmlFor="descripcion">Descripción:</label>
+          <label className='tituloDescripcion' htmlFor="descripcion">Descripción:</label>
           <br />
           <textarea id="descripcion" name="descripcion" value={descripcion} onChange={handleInputChange} />
           <br />
-          <button onClick={handleSave}>Guardar</button>
+          <button className='buttonSalida' onClick={handleSave}>Guardar</button>
         </div>
       </div>
     )
