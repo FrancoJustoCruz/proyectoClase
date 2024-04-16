@@ -1,6 +1,25 @@
+import React, { useState } from 'react';
 import './ModalEntrada.css';
 
-function ModalEntrada({ isOpen, onClose, monto, descripcion, handleInputChange, handleSave }) {
+function ModalEntrada({ isOpen, onClose }) {
+  const [monto, setMonto] = useState('');
+  const [descripcion, setDescripcion] = useState('');
+
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    if (name === 'monto') {
+      if (!isNaN(value)) {
+        setMonto(value);
+      }
+    } else if (name === 'descripcion') {
+      setDescripcion(value);
+    }
+  };
+
+  const handleSave = () => {
+    onClose();
+  };
+
   return (
     isOpen && (
       <div className="modalEntrada">
@@ -15,18 +34,6 @@ function ModalEntrada({ isOpen, onClose, monto, descripcion, handleInputChange, 
             <textarea id="descripcion" name="descripcion" value={descripcion} onChange={handleInputChange} />
             <button onClick={handleSave}>Guardar</button>
           </form>
-
-          <h2 className='tituloEntrada'>Entrada</h2>
-          <label className='tituloMonto' htmlFor="monto">Monto:</label>
-          <br />
-          <input className='inputMonto' type="number" id="monto" name="monto" value={monto} onChange={handleInputChange} />
-          <br />
-          <label className='tituloDescripcion' htmlFor="descripcion">Descripción:</label>
-          <br />
-          <textarea className='descripcion' id="descripcion" name="descripcion" value={descripcion} onChange={handleInputChange} />
-          <br />
-          <button className='buttonEntrada' onClick={handleSave}>Guardar</button>
-
         </div>
       </div>
     )
