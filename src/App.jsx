@@ -1,54 +1,28 @@
-import React, { useState } from 'react'
-import './App.css'
-
-import BotonComponent from './Components/Boton/BotonComponent'
-import ModalEntrada from './Components/Modal/ModalEntrada/ModalEntrada'
-import ModalSalida from './Components/Modal/ModalSalida/ModalSalida'
+import React from 'react';
+import './App.css';
+import BotonComponent from './Components/Boton/BotonComponent';
+import ModalEntrada from './Components/Modal/ModalEntrada/ModalEntrada';
+import ModalSalida from './Components/Modal/ModalSalida/ModalSalida';
 
 function App() {
-  const [modalEntradaOpen, setModalEntradaOpen] = useState(false)
-  const [modalSalidaOpen, setModalSalidaOpen] = useState(false)
-
-  // Estados para el modal de entrada
-  const [montoEntrada, setMontoEntrada] = useState('');
-  const [descripcionEntrada, setDescripcionEntrada] = useState('')
-
-  // Estados para el modal de salida
-  const [montoSalida, setMontoSalida] = useState('');
-  const [descripcionSalida, setDescripcionSalida] = useState('')
-  const [categoriaSalida, setCategoriaSalida] = useState('')
+  const [modalEntradaOpen, setModalEntradaOpen] = React.useState(false);
+  const [modalSalidaOpen, setModalSalidaOpen] = React.useState(false);
 
   const handleModalEntradaToggle = () => {
-    setModalEntradaOpen(!modalEntradaOpen)
-  }
+    setModalEntradaOpen(!modalEntradaOpen);
+  };
 
   const handleModalSalidaToggle = () => {
-    setModalSalidaOpen(!modalSalidaOpen)
-  }
+    setModalSalidaOpen(!modalSalidaOpen);
+  };
 
-  const handleInputChangeEntrada = (event) => {
-    const { name, value } = event.target
-    if (name === 'monto') {
-      if (!isNaN(value)) {
-        setMontoEntrada(value);
-      }
-    } else if (name === 'descripcion') {
-      setDescripcionEntrada(value)
-    }
-  }
-
-  const handleInputChangeSalida = (event) => {
-    const { name, value } = event.target
-    if (name === 'monto') {
-      if (!isNaN(value)) {
-        setMontoSalida(value);
-      }
-    } else if (name === 'descripcion') {
-      setDescripcionSalida(value)
-    } else if (name === 'categoria') {
-      setCategoriaSalida(value)
-    }
-  }
+  const handleSaveEntrada = (monto, descripcion) => {
+   
+    console.log('Datos guardados de la modal de entrada:', monto, descripcion);
+  };
+  const handleSaveSalida = (monto, descripcion, categoria) => {
+    console.log('Datos guardados de la modal de salida:', monto, descripcion, categoria);
+  };
 
   return (
     <>
@@ -68,23 +42,16 @@ function App() {
       <ModalEntrada
         isOpen={modalEntradaOpen}
         onClose={handleModalEntradaToggle}
-        monto={montoEntrada}
-        descripcion={descripcionEntrada}
-        handleInputChange={handleInputChangeEntrada}
-        handleSave={handleModalEntradaToggle}
+        handleSave={handleSaveEntrada}
       />
 
       <ModalSalida
         isOpen={modalSalidaOpen}
         onClose={handleModalSalidaToggle}
-        monto={montoSalida}
-        descripcion={descripcionSalida}
-        categoria={categoriaSalida}
-        handleInputChange={handleInputChangeSalida}
-        handleSave={handleModalSalidaToggle}
+        handleSave={handleSaveSalida}
       />
     </>
   );
 }
 
-export default App
+export default App;

@@ -1,6 +1,38 @@
-import './ModalSalida.css'
+import React, { useState } from 'react';
+import './ModalSalida.css';
 
-function ModalSalida({ isOpen, onClose, monto, descripcion, categoria, handleInputChange, handleSave }) {
+function ModalSalida({ isOpen, onClose }) {
+  const [monto, setMonto] = useState('');
+  const [descripcion, setDescripcion] = useState('');
+  const [categoria, setCategoria] = useState('');
+  const [movimientos, setMovimientos] = useState([]);
+
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    if (name === 'monto') {
+      if (!isNaN(value)) {
+        setMonto(value);
+      }
+    } else if (name === 'descripcion') {
+      setDescripcion(value);
+    } else if (name === 'categoria') {
+      setCategoria(value);
+    }
+  };
+
+  const handleSave = () => {
+    const nuevoMovimiento = { monto, descripcion, categoria };
+    setMovimientos([...movimientos, nuevoMovimiento]);
+    setMonto('');
+    setDescripcion('');
+    setCategoria('');
+    onClose();
+  };
+
+  const handleVerMovimientos = () => {
+    console.log('Movimientos guardados:', movimientos);
+  };
+
   return (
     isOpen && (
       <div className="modal">
@@ -19,18 +51,18 @@ function ModalSalida({ isOpen, onClose, monto, descripcion, categoria, handleInp
             <option value="transporte">Transporte</option>
             <option value="entretenimiento">Entretenimiento</option>
             <option value="comidaMichi">Comida para el michi</option>
-            
           </select>
           <br />
           <label className='tituloDescripcion' htmlFor="descripcion">Descripción:</label>
           <br />
-          <textarea id="descripcion" name="descripcion" value={descripcion} onChange={handleInputChange} />
+          <textarea className="descripcion" name="descripcion" value={descripcion} onChange={handleInputChange} />
           <br />
           <button className='buttonSalida' onClick={handleSave}>Guardar</button>
+          <button onClick={handleVerMovimientos}>Ver Movimientos</button>
         </div>
       </div>
     )
-  )
+  );
 }
 
 export default ModalSalida;
